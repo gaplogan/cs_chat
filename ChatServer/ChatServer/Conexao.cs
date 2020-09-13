@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Net.Sockets;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace ChatServer
 {
@@ -21,6 +22,7 @@ namespace ChatServer
             tcpCliente = tcpCon;
             // A thread que aceita o cliente e espera a mensagem
             thrSender = new Thread(AceitaCliente);
+            thrSender.IsBackground = true;
             // A thread chama o método AceitaCliente()
             thrSender.Start();
         }
@@ -77,7 +79,7 @@ namespace ChatServer
                 FechaConexao();
                 return;
             }
-            //
+            
             try
             {
                 // Continua aguardando por uma mensagem do usuário

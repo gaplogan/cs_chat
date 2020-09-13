@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Net;
 using System.Windows.Forms;
 
@@ -39,7 +40,7 @@ namespace ChatServer
 
                 // Vincula o tratamento de evento StatusChanged a mainServer_StatusChanged
                 Servidor.StatusChanged += new StatusChangedEventHandler(mainServidor_StatusChanged);
-
+                
                 // Inicia o atendimento das conexões
                 mainServidor.IniciaAtendimento();
 

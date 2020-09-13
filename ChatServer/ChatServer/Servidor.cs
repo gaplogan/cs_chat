@@ -33,7 +33,7 @@ namespace ChatServer
 
         // A thread que ira tratar o escutador de conexões
         private Thread thrListener;
-
+        
         // O objeto TCP object que escuta as conexões
         private TcpListener tlsCliente;
 
@@ -171,6 +171,7 @@ namespace ChatServer
 
                 // Inicia uma nova tread que hospeda o listener
                 thrListener = new Thread(MantemAtendimento);
+                thrListener.IsBackground = true;
                 thrListener.Start();
             }
             catch (Exception ex)
